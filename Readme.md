@@ -39,11 +39,11 @@ Edit src/main/java/org/ngafid/Main.java and increase upperLimit or decrease segm
 
 ## How the thread pool is executed
 
-A fixed-size pool is created with Executors.newFixedThreadPool(poolSize, namedFactory).
-Submitting tasks (executor.submit(new SegmentPrimeTask(...))) places them onto the internal work queue.
-Up to poolSize worker threads run concurrently. When a worker finishes a task it immediately pulls the next queued task and continues (threads are reused).
-Each task returns a Future<Integer>; the main thread calls Future.get() to collect per-segment results (blocking until ready).
-Shutdown is performed with executor.shutdown() followed by awaitTermination(...) and a fallback shutdownNow() if needed.
+* A fixed-size pool is created with Executors.newFixedThreadPool(poolSize, namedFactory).
+* Submitting tasks (executor.submit(new SegmentPrimeTask(...))) places them onto the internal work queue.
+* Up to poolSize worker threads run concurrently. When a worker finishes a task it immediately pulls the next queued task and continues (threads are reused).
+* Each task returns a Future<Integer>; the main thread calls Future.get() to collect per-segment results (blocking until ready).
+* Shutdown is performed with executor.shutdown() followed by awaitTermination(...) and a fallback shutdownNow() if needed.
 
 
 ## Libraries used
