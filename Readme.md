@@ -52,3 +52,15 @@ java.util.concurrent — ExecutorService, Executors, Future, Callable, ThreadFac
 
 
 
+## Output
+
+See example execution output in the exampleOutput.txt file in the root directory of the project.
+
+Example:
+...
+
+prime-worker-4: processed 2000000/2000000 (~100%) in [198000001, 200000000]
+prime-worker-4: finished segment [198000001, 200000000], found 104659 primes in 618 ms
+Collected segment 100: 104659 primes
+Primes up to 200000000: 11078937
+Elapsed time: 5.502 s (threads=10, segments=100)
